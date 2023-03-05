@@ -1,0 +1,13 @@
+Process 0 calculates this number, and like the other processes later, takes this number and determines how many of its processes will need to take
+one more number. Process 0 sends the following to process 3: the number of numbers processed by each worker, the number of numbers to be sent 
+(the ones processed by the current process are no longer sent), the actual numbers, and the number of workers that will need to process one more
+number. Each process sends to the next process (0>3>2>1).
+
+Each coordinator process will send the number of numbers and the actual numbers to be processed to the worker processes in its cluster,
+and the worker processes will send them back processed. Finally, these processes are sent to 0. 1 sends to 2, 2 sends what it has and 
+what it has received for 1 to 3, and 3 sends everything to process 0, which assembles and displays the result (if the error is 1), otherwise
+1 sends the topology directly to 0. The same thing happens when sending topologies, if the error is 1, it is sent to 2 and so on, otherwise 1
+sends the topology directly to 0.
+
+
+
